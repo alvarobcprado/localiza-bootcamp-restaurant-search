@@ -8,6 +8,7 @@ import {
   Wrapper,
   Map,
   CaroulselTitle,
+  Carousel,
 } from "./styles";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
@@ -22,7 +23,7 @@ const Home = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     adaptiveHeight: true,
   };
   return (
@@ -43,14 +44,14 @@ const Home = () => {
             />
           </TextField>
           <CaroulselTitle>Na sua Área</CaroulselTitle>
-          <Slider {...settings}>
-            <Card photo={restaurante} />
-            <Card photo={restaurante} />
-            <Card photo={restaurante} />
-            <Card photo={restaurante} />
-            <Card photo={restaurante} />
-            <Card photo={restaurante} />
-          </Slider>
+          <Carousel {...settings}>
+            <Card photo={restaurante} title="Nome1" />
+            <Card photo={restaurante} title="Nome2" />
+            <Card photo={restaurante} title="Nome3" />
+            <Card photo={restaurante} title="Nome4" />
+            <Card photo={restaurante} title="Nome5" />
+            <Card photo={restaurante} title="Nome5" />
+          </Carousel>
         </Search>
       </Container>
       <Map />
