@@ -4,13 +4,12 @@ import restaurante from "../../assets/restaurante-fake.png";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
 import Slider from "react-slick";
-import { Card, Restaurant, Modal } from "../../components";
+import { Card, Restaurant, Modal, Map } from "../../components";
 import {
   Container,
   Logo,
   Search,
   Wrapper,
-  Map,
   CaroulselTitle,
   Carousel,
 } from "./styles";
@@ -53,7 +52,6 @@ const Home = () => {
             <Card photo={restaurante} title="Nome5" />
             <Card photo={restaurante} title="Nome5" />
           </Carousel>
-          <button onClick={() => setOpenedModal(true)}>Abrir o Modal</button>
         </Search>
         <Restaurant />
       </Container>
