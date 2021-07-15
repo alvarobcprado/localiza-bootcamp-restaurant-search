@@ -13,7 +13,7 @@ import {
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
 import Slider from "react-slick";
-import { Card } from "../../components";
+import { Card, Restaurant } from "../../components";
 
 const Home = () => {
   const [inputText, setInputText] = useState("");
@@ -53,6 +53,7 @@ const Home = () => {
             <Card photo={restaurante} title="Nome5" />
           </Carousel>
         </Search>
+        <Restaurant />
       </Container>
       <Map />
     </Wrapper>
