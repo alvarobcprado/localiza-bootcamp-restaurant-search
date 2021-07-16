@@ -16,15 +16,23 @@ import {
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const { restaurants } = useSelector((state) => state.restaurants);
+  const { restaurants, restaurantSelected } = useSelector(
+    (state) => state.restaurants
+  );
   const [inputText, setInputText] = useState("");
   const [openedModal, setOpenedModal] = useState(false);
   const [query, setQuery] = useState(null);
+  const [placeId, setPlaceId] = useState(null);
 
   function handleKeyPress(e) {
     if (e.key === "Enter") {
       setQuery(inputText);
     }
+  }
+
+  function handleOpenModal(placeId) {
+    setPlaceId(placeId);
+    setOpenedModal(true);
   }
 
   const settings = {
@@ -68,7 +76,12 @@ const Home = () => {
                 title={restaurant.name}
               />
             ))}
-            <Card key={11} photo={restaurante} title="Nome1" />
+            <Card
+              key={11}
+              photo={restaurante}
+              title="Nome1"
+              onClick={(e) => handleOpenModal("ksas")}
+            />
             <Card key={12} photo={restaurante} title="Nome2" />
             <Card key={13} photo={restaurante} title="Nome3" />
             <Card key={14} photo={restaurante} title="Nome4" />
@@ -80,11 +93,19 @@ const Home = () => {
           </Carousel>
         </Search>
         {restaurants.map((restaurant) => (
-          <Restaurant key={restaurant.place_id} restaurant={restaurant} />
+          <Restaurant
+            key={restaurant.place_id}
+            restaurant={restaurant}
+            onClick={() => handleOpenModal(restaurant.place_id)}
+          />
         ))}
       </Container>
       <Map query={query} />
-      <Modal open={openedModal} onClose={() => setOpenedModal(false)} />
+      <Modal open={openedModal} onClose={() => setOpenedModal(false)}>
+        <p>{restaurantSelected?.name}</p>
+        <p>{restaurantSelected?.formatted_address}</p>
+        <p>{restaurantSelected?.formatted_phone_number}</p>
+      </Modal>
     </Wrapper>
   );
 };

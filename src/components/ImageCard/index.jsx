@@ -18,8 +18,8 @@ const Title = styled.span`
   font-size: 16px;
 `;
 
-const ImageCard = ({ photo, title }) => (
-  <Card photo={photo}>
+const ImageCard = ({ photo, title, onClick }) => (
+  <Card photo={photo} onClick={onClick}>
     <Title>{title}</Title>
   </Card>
 );

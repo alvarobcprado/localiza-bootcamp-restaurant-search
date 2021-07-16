@@ -8,13 +8,41 @@ const MapContainer = (props) => {
   const { restaurants } = useSelector((state) => state.restaurants);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
-  const { google, query } = props;
+  const { google, query, placeId } = props;
 
   useEffect(() => {
     if (query) {
       return searchByQuery(query);
     }
   }, [query]);
+
+  useEffect(() => {
+    if (placeId) {
+      return getRestaurantById(placeId);
+    }
+  }, [placeId]);
+
+  function getRestaurantById(placeId) {
+    console.log(query);
+    const service = new google.maps.places.PlacesService(map);
+
+    const request = {
+      placeId,
+      fields: [
+        "name",
+        "opening_hours",
+        "formatted_address",
+        "formatted_phone_number",
+      ],
+    };
+
+    return service.getDetails(request, (place, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        console.log("Restaurantes >>>>", place);
+        dispatch(setRestaurant(place));
+      }
+    });
+  }
 
   function searchByQuery(query) {
     console.log(query);
@@ -46,8 +74,8 @@ const MapContainer = (props) => {
 
     return service.nearbySearch(request, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log("Restaurantes >>>>", results);
         dispatch(setRestaurants(results));
+        console.log("Restaurantes >>>>", results);
       }
     });
   }
@@ -63,6 +91,7 @@ const MapContainer = (props) => {
       centerAroundCurrentLocation
       onReady={onMapReady}
       onRecenter={onMapReady}
+      {...props}
     >
       {restaurants.map((restaurant) => {
         <Marker

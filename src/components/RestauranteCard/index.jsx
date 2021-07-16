@@ -10,8 +10,8 @@ import {
 import ReactStars from "react-rating-stars-component";
 import restaurante from "../../assets/restaurante-fake.png";
 
-const RestaurantCard = ({ restaurant }) => (
-  <Restaurant>
+const RestaurantCard = ({ restaurant, onClick }) => (
+  <Restaurant onClick={onClick}>
     <RestaurantInfo>
       <Title>{restaurant.name}</Title>
       <ReactStars
