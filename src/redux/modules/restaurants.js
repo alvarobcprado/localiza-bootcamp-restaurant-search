@@ -3,7 +3,7 @@ export const Types = {
   SET_RESTAURANT: "restaurants/SET_RESTAURANT",
 };
 
-const inistialState = {
+const initialState = {
   restaurants: [],
   restaurantSelectec: null,
 };

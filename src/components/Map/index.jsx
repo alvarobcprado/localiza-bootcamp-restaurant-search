@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { GoogleApiWrapper, Map } from "google-maps-react";
+import { useDispatch, useSelector } from "react-redux";
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 
 import { setRestaurants, setRestaurant } from "../../redux/modules/restaurants";
 
 const MapContainer = (props) => {
+  const { restaurants } = useSelector((state) => state.restaurants);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
   const { google, query } = props;
@@ -62,7 +63,18 @@ const MapContainer = (props) => {
       centerAroundCurrentLocation
       onReady={onMapReady}
       onRecenter={onMapReady}
-    />
+    >
+      {restaurants.map((restaurant) => {
+        <Marker
+          key={restaurant.place_id}
+          name={restaurant.name}
+          position={{
+            lat: restaurant.geometry.location.lat(),
+            lng: restaurant.geometry.location.lng(),
+          }}
+        />;
+      })}
+    </Map>
   );
 };
 
