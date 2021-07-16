@@ -19,6 +19,16 @@ export const RestaurantInfo = styled.div`
   flex-direction: column;
 `;
 
+export const RestaurantPhoto = styled.div`
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  padding: 5px;
+  border-radius: 6px;
+  background-image: url(${(props) => props.photo});
+  background-size: cover;
+`;
+
 export const Title = styled.span`
   color: ${(props) => props.theme.colors.text};
   font-size: 24px;
