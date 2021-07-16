@@ -3,7 +3,6 @@ import logo from "../../assets/logo.svg";
 import restaurante from "../../assets/restaurante-fake.png";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import Slider from "react-slick";
 import { Card, Restaurant, Modal, Map } from "../../components";
 import {
   Container,
@@ -17,6 +16,13 @@ import {
 const Home = () => {
   const [inputText, setInputText] = useState("");
   const [openedModal, setOpenedModal] = useState(false);
+  const [query, setQuery] = useState(null);
+
+  function handleKeyPress(e) {
+    if (e.key === "Enter") {
+      setQuery(inputText);
+    }
+  }
 
   const settings = {
     dots: true,
@@ -41,6 +47,7 @@ const Home = () => {
             <Input
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              onKeyPress={(e) => handleKeyPress(e)}
             />
           </TextField>
           <CaroulselTitle>Na sua Área</CaroulselTitle>
@@ -55,7 +62,7 @@ const Home = () => {
         </Search>
         <Restaurant />
       </Container>
-      <Map />
+      <Map query={query} />
       <Modal open={openedModal} onClose={() => setOpenedModal(false)} />
     </Wrapper>
   );
