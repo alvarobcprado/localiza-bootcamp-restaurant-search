@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 import restaurante from "../../assets/restaurante-fake.png";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import { Card, Restaurant, Modal, Map } from "../../components";
+import { Card, Restaurant, Modal, Map, Loader } from "../../components";
 import {
   Container,
   Logo,
@@ -64,33 +64,37 @@ const Home = () => {
             />
           </TextField>
           <CaroulselTitle>Na sua Área</CaroulselTitle>
-          <Carousel {...settings}>
-            {restaurants.map((restaurant) => (
+          {restaurants.length > 0 ? (
+            <Carousel {...settings}>
+              {restaurants.map((restaurant) => (
+                <Card
+                  key={restaurant.place_id}
+                  photo={
+                    restaurant.photos
+                      ? restaurant.photos[0].getUrl()
+                      : restaurante
+                  }
+                  title={restaurant.name}
+                />
+              ))}
               <Card
-                key={restaurant.place_id}
-                photo={
-                  restaurant.photos
-                    ? restaurant.photos[0].getUrl()
-                    : restaurante
-                }
-                title={restaurant.name}
+                key={11}
+                photo={restaurante}
+                title="Nome1"
+                onClick={(e) => handleOpenModal("ksas")}
               />
-            ))}
-            <Card
-              key={11}
-              photo={restaurante}
-              title="Nome1"
-              onClick={(e) => handleOpenModal("ksas")}
-            />
-            <Card key={12} photo={restaurante} title="Nome2" />
-            <Card key={13} photo={restaurante} title="Nome3" />
-            <Card key={14} photo={restaurante} title="Nome4" />
-            <Card key={15} photo={restaurante} title="Nome5" />
-            <Card key={16} photo={restaurante} title="Nome6" />
-            <Card key={17} photo={restaurante} title="Nome7" />
-            <Card key={18} photo={restaurante} title="Nome8" />
-            <Card key={19} photo={restaurante} title="Nome9" />
-          </Carousel>
+              <Card key={12} photo={restaurante} title="Nome2" />
+              <Card key={13} photo={restaurante} title="Nome3" />
+              <Card key={14} photo={restaurante} title="Nome4" />
+              <Card key={15} photo={restaurante} title="Nome5" />
+              <Card key={16} photo={restaurante} title="Nome6" />
+              <Card key={17} photo={restaurante} title="Nome7" />
+              <Card key={18} photo={restaurante} title="Nome8" />
+              <Card key={19} photo={restaurante} title="Nome9" />
+            </Carousel>
+          ) : (
+            <Loader />
+          )}
         </Search>
         {restaurants.map((restaurant) => (
           <Restaurant
