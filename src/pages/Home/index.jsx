@@ -3,7 +3,14 @@ import logo from "../../assets/logo.svg";
 import restaurante from "../../assets/restaurante-fake.png";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import { Card, Restaurant, Modal, Map, Loader } from "../../components";
+import {
+  Card,
+  Restaurant,
+  Modal,
+  Map,
+  Loader,
+  Skeleton,
+} from "../../components";
 import {
   Container,
   Logo,
@@ -106,9 +113,22 @@ const Home = () => {
       </Container>
       <Map query={query} />
       <Modal open={openedModal} onClose={() => setOpenedModal(false)}>
-        <p>{restaurantSelected?.name}</p>
-        <p>{restaurantSelected?.formatted_address}</p>
-        <p>{restaurantSelected?.formatted_phone_number}</p>
+        {restaurantSelected ? (
+          <>
+            <p>{restaurantSelected?.name}</p>
+            <p>{restaurantSelected?.formatted_address}</p>
+            <p>{restaurantSelected?.formatted_phone_number}</p>
+          </>
+        ) : (
+          <>
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+          </>
+        )}
       </Modal>
     </Wrapper>
   );
