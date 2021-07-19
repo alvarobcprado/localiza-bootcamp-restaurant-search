@@ -19,14 +19,14 @@ export const RestaurantInfo = styled.div`
   flex-direction: column;
 `;
 
-export const RestaurantPhoto = styled.div`
-  justify-content: center;
-  width: 90px;
-  height: 90px;
+export const RestaurantPhoto = styled.img`
+  display: ${(props) => (props.imageLoaded ? "block" : "none")};
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   padding: 5px;
   border-radius: 6px;
-  background-image: url(${(props) => props.photo});
-  background-size: cover;
+  src: url(${(props) => props.src});
 `;
 
 export const Title = styled.span`

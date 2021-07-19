@@ -72,44 +72,47 @@ const Home = () => {
           </TextField>
           <CaroulselTitle>Na sua Área</CaroulselTitle>
           {restaurants.length > 0 ? (
-            <Carousel {...settings}>
-              {restaurants.map((restaurant) => (
+            <>
+              <Carousel {...settings}>
+                {restaurants.map((restaurant) => (
+                  <Card
+                    key={restaurant.place_id}
+                    photo={
+                      restaurant.photos
+                        ? restaurant.photos[0].getUrl()
+                        : restaurante
+                    }
+                    title={restaurant.name}
+                  />
+                ))}
                 <Card
+                  key={11}
+                  photo={restaurante}
+                  title="Nome1"
+                  onClick={(e) => handleOpenModal("ksas")}
+                />
+                <Card key={12} photo={restaurante} title="Nome2" />
+                <Card key={13} photo={restaurante} title="Nome3" />
+                <Card key={14} photo={restaurante} title="Nome4" />
+                <Card key={15} photo={restaurante} title="Nome5" />
+                <Card key={16} photo={restaurante} title="Nome6" />
+                <Card key={17} photo={restaurante} title="Nome7" />
+                <Card key={18} photo={restaurante} title="Nome8" />
+                <Card key={19} photo={restaurante} title="Nome9" />
+              </Carousel>
+
+              {restaurants.map((restaurant) => (
+                <Restaurant
                   key={restaurant.place_id}
-                  photo={
-                    restaurant.photos
-                      ? restaurant.photos[0].getUrl()
-                      : restaurante
-                  }
-                  title={restaurant.name}
+                  restaurant={restaurant}
+                  onClick={() => handleOpenModal(restaurant.place_id)}
                 />
               ))}
-              <Card
-                key={11}
-                photo={restaurante}
-                title="Nome1"
-                onClick={(e) => handleOpenModal("ksas")}
-              />
-              <Card key={12} photo={restaurante} title="Nome2" />
-              <Card key={13} photo={restaurante} title="Nome3" />
-              <Card key={14} photo={restaurante} title="Nome4" />
-              <Card key={15} photo={restaurante} title="Nome5" />
-              <Card key={16} photo={restaurante} title="Nome6" />
-              <Card key={17} photo={restaurante} title="Nome7" />
-              <Card key={18} photo={restaurante} title="Nome8" />
-              <Card key={19} photo={restaurante} title="Nome9" />
-            </Carousel>
+            </>
           ) : (
             <Loader />
           )}
         </Search>
-        {restaurants.map((restaurant) => (
-          <Restaurant
-            key={restaurant.place_id}
-            restaurant={restaurant}
-            onClick={() => handleOpenModal(restaurant.place_id)}
-          />
-        ))}
       </Container>
       <Map query={query} />
       <Modal open={openedModal} onClose={() => setOpenedModal(false)}>
