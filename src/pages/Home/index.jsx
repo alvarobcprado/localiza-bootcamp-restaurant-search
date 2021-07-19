@@ -114,7 +114,7 @@ const Home = () => {
           )}
         </Search>
       </Container>
-      <Map query={query} />
+      <Map query={query} placeId={placeId} />
       <Modal open={openedModal} onClose={() => setOpenedModal(false)}>
         {restaurantSelected ? (
           <>

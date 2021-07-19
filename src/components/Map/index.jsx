@@ -96,7 +96,7 @@ const MapContainer = (props) => {
       onRecenter={onMapReady}
       {...props}
     >
-      {restaurants.map((restaurant) => {
+      {restaurants.map((restaurant) => (
         <Marker
           key={restaurant.place_id}
           name={restaurant.name}
@@ -104,8 +104,8 @@ const MapContainer = (props) => {
             lat: restaurant.geometry.location.lat(),
             lng: restaurant.geometry.location.lng(),
           }}
-        />;
-      })}
+        />
+      ))}
     </Map>
   );
 };
