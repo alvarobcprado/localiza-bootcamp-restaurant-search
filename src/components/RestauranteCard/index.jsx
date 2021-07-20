@@ -32,7 +32,7 @@ const RestaurantCard = ({ restaurant, onClick }) => {
         src={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante}
         alt="Foto do restaurante selecionado"
       />
-      {!imageLoaded && <Skeleton width="100px" height="100px" />}
+      {!imageLoaded && <Skeleton width="90px" height="90px" />}
     </Restaurant>
   );
 };

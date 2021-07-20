@@ -20,12 +20,14 @@ import {
   Carousel,
 } from "./styles";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setRestaurant } from "../../redux/modules/restaurants";
 
 const Home = () => {
   const { restaurants, restaurantSelected } = useSelector(
     (state) => state.restaurants
   );
+  const dispatch = useDispatch();
   const [inputText, setInputText] = useState("");
   const [openedModal, setOpenedModal] = useState(false);
   const [query, setQuery] = useState(null);
@@ -45,11 +47,11 @@ const Home = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    autoPlay: true,
-    autoPlaySpeed: 500,
+    speed: 300,
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToScroll: 4,
     adaptiveHeight: true,
   };
   return (
@@ -85,20 +87,6 @@ const Home = () => {
                     title={restaurant.name}
                   />
                 ))}
-                <Card
-                  key={11}
-                  photo={restaurante}
-                  title="Nome1"
-                  onClick={(e) => handleOpenModal("ksas")}
-                />
-                <Card key={12} photo={restaurante} title="Nome2" />
-                <Card key={13} photo={restaurante} title="Nome3" />
-                <Card key={14} photo={restaurante} title="Nome4" />
-                <Card key={15} photo={restaurante} title="Nome5" />
-                <Card key={16} photo={restaurante} title="Nome6" />
-                <Card key={17} photo={restaurante} title="Nome7" />
-                <Card key={18} photo={restaurante} title="Nome8" />
-                <Card key={19} photo={restaurante} title="Nome9" />
               </Carousel>
 
               {restaurants.map((restaurant) => (
@@ -115,7 +103,13 @@ const Home = () => {
         </Search>
       </Container>
       <Map query={query} placeId={placeId} />
-      <Modal open={openedModal} onClose={() => setOpenedModal(false)}>
+      <Modal
+        open={openedModal}
+        onClose={() => {
+          dispatch(setRestaurant(null));
+          setOpenedModal(false);
+        }}
+      >
         {restaurantSelected ? (
           <>
             <p>{restaurantSelected?.name}</p>

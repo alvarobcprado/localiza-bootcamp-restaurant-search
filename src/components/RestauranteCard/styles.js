@@ -5,7 +5,7 @@ export const Restaurant = styled.div`
   justify-content: space-between;
   cursor: pointer;
   padding: 16px;
-  margin-top: 10px;
+  margin-top: 16px;
   background-color: #ffffff;
   border-left: 5px solid transparent;
   :hover {
@@ -21,10 +21,10 @@ export const RestaurantInfo = styled.div`
 
 export const RestaurantPhoto = styled.img`
   display: ${(props) => (props.imageLoaded ? "block" : "none")};
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
-  padding: 5px;
+  padding: 10px;
   border-radius: 6px;
   src: url(${(props) => props.src});
 `;

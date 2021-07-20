@@ -7,7 +7,8 @@ const Card = styled.div`
   justify-content: center;
   width: 90px;
   height: 90px;
-  padding: 5px;
+  padding: 16px;
+  margin: 16px;
   border-radius: 6px;
   background-image: url(${(props) => props.photo});
   background-size: cover;
@@ -16,7 +17,7 @@ const Card = styled.div`
 const Title = styled.span`
   font-family: ${(props) => props.theme.fonts.regular};
   color: #ffffff;
-  font-size: 16px;
+  font-size: 10px;
 `;
 
 const ImageCard = ({ photo, title, onClick }) => {
@@ -31,11 +32,11 @@ const ImageCard = ({ photo, title, onClick }) => {
   return (
     <>
       {imageLoaded ? (
-        <Card photo={photo} onClick={onClick}>
+        <Card photo={photo}>
           <Title>{title}</Title>
         </Card>
       ) : (
-        <Skeleton width="90px" height="90px" />
+        <Skeleton width="100px" height="100px" />
       )}
     </>
   );
