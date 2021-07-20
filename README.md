@@ -70,4 +70,4 @@ localhost:3000
 
 ### Créditos
 
-[Patrick Narciso](https://github.com/patrick-narciso) - Instrutor DIO
+Repositório baseado no bootcamp [LocalizaLabs React Developer](https://digitalinnovation.one/bootcamps/localizalabs-react-developer) ministrado por [Patrick Narciso](https://github.com/patrick-narciso)
