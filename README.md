@@ -68,6 +68,6 @@ npm start
 localhost:3000
 ```
 
-### Créditos
+## Créditos
 
 Repositório baseado no bootcamp [LocalizaLabs React Developer](https://digitalinnovation.one/bootcamps/localizalabs-react-developer) ministrado por [Patrick Narciso](https://github.com/patrick-narciso)
