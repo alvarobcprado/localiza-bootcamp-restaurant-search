@@ -20,7 +20,7 @@ Projeto feito como parte do desenvolvimento do bootcamp Localizalabs ReactJS, of
 
 1. [React Rating Stars Component](https://www.npmjs.com/package/react-rating-stars-component)
 2. [Google Maps React](https://www.npmjs.com/package/google-maps-react)
-3. [React Click](<[https://link](https://www.npmjs.com/package/react-slick)>)
+3. [React Slick](https://www.npmjs.com/package/react-slick)
 
 ### APIs:
 
