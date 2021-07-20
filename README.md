@@ -1,4 +1,4 @@
-# Site para busca de restaurantes próximos
+# Restaurants Search - Site para busca de restaurantes próximos
 
 Projeto feito como parte do desenvolvimento do bootcamp Localizalabs ReactJS, ofertado pela [Digital Innovation One](https://digitalinnovation.one/).
 
