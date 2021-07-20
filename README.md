@@ -2,7 +2,7 @@
 
 Projeto feito como parte do desenvolvimento do bootcamp Localizalabs ReactJS, ofertado pela [Digital Innovation One](https://digitalinnovation.one/).
 
-![Página inicial](../projeto-restaurante/public/github/home.png)
+![Página inicial](public/github/home.png)
 
 ## Recursos utilizados
 
