@@ -47,13 +47,22 @@ cd <pasta onde foi clonado>/<localiza-bootcamp-restaurant-search>
 npm install
 ```
 
-4. Executar o projeto
+4. Criar variável de ambiente e adicionar a chave de API do Google:
+
+   1. Criar um arquivo .env na raiz do projeto
+   2. Adicionar sua chave de API do google no arquivo .env
+
+   ```
+   REACT_APP_GOOGLE_API_KEY=<sua chave de api>
+   ```
+
+5. Executar o projeto
 
 ```
 npm start
 ```
 
-5. Por padrão o projeto estará disponível no endereço
+6. Por padrão o projeto estará disponível no endereço
 
 ```
 localhost:3000
