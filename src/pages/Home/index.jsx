@@ -18,6 +18,8 @@ import {
   Wrapper,
   CaroulselTitle,
   Carousel,
+  DetailTitle,
+  DetailText,
 } from "./styles";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -112,9 +114,16 @@ const Home = () => {
       >
         {restaurantSelected ? (
           <>
-            <p>{restaurantSelected?.name}</p>
-            <p>{restaurantSelected?.formatted_address}</p>
-            <p>{restaurantSelected?.formatted_phone_number}</p>
+            <DetailTitle>{restaurantSelected?.name}</DetailTitle>
+            <DetailText>{restaurantSelected?.formatted_address}</DetailText>
+            <DetailText>
+              {restaurantSelected?.formatted_phone_number}
+            </DetailText>
+            <DetailText>
+              {restaurantSelected?.opening_hours?.open_now === false
+                ? "O estabelecimento está fechado no momento x.x"
+                : "Está aberto :)"}
+            </DetailText>
           </>
         ) : (
           <>

@@ -47,3 +47,20 @@ export const CaroulselTitle = styled.h1`
   line-height: 29px;
   margin: 16px 0;
 `;
+
+export const DetailTitle = styled.p`
+  font-family: ${(props) => props.theme.fonts.regular};
+  color: ${(props) => props.theme.colors.text};
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 19px;
+  margin-bottom: 16px;
+`;
+
+export const DetailText = styled.p`
+  font-family: ${(props) => props.theme.fonts.regular};
+  color: ${(props) => props.theme.colors.text};
+  font-size: 14px;
+  line-height: 9px;
+  margin: 6px 0px;
+`;
