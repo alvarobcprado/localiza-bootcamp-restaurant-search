@@ -129,8 +129,6 @@ const Home = () => {
           <>
             <Skeleton width="10px" height="10px" />
             <Skeleton width="10px" height="10px" />
-
-            <Skeleton width="10px" height="10px" />
             <Skeleton width="10px" height="10px" />
             <Skeleton width="10px" height="10px" />
           </>
