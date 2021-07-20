@@ -17,7 +17,8 @@ const Card = styled.div`
 const Title = styled.span`
   font-family: ${(props) => props.theme.fonts.regular};
   color: #ffffff;
-  font-size: 10px;
+  font-size: 16px;
+  text-shadow: 1px 1px #000000;
 `;
 
 const ImageCard = ({ photo, title, onClick }) => {
