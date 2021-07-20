@@ -1,6 +1,6 @@
 # Restaurant Finder - Site para busca de restaurantes próximos
 
-Projeto feito como parte do desenvolvimento do bootcamp Localizalabs ReactJS, ofertado pela [Digital Innovation One](https://digitalinnovation.one/).
+Projeto feito como parte do desenvolvimento do bootcamp [LocalizaLabs React Developer](https://digitalinnovation.one/bootcamps/localizalabs-react-developer), ofertado pela [Digital Innovation One](https://digitalinnovation.one/).
 
 ![Página inicial](public/github/home.png)
 
